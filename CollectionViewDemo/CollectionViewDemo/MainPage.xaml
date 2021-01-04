@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CollectionViewDemo.MainPage">
+
+    <CollectionView ItemsSource="{Binding Products}">
+        <!--#Item Source Xaml
+        <CollectionView.ItemsSource>
+            <x:Array Type="{x:Type x:String}">
+                <x:String>Can</x:String>
+                <x:String>Sausage</x:String>
+                <x:String>Jam</x:String>
+                <x:String>Eggs</x:String>
+                <x:String>Fiz</x:String>
+                <x:String>Hamburger</x:String>
+            </x:Array>
+        </CollectionView.ItemsSource> -->
+        <!--#endregion-->
+        <CollectionView.ItemTemplate>
+            <DataTemplate>
+                <Frame Padding="5" CornerRadius="5" 
+                       IsClippedToBounds="False">
+                    <Grid HeightRequest="100">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.3*"></ColumnDefinition>
+                            <ColumnDefinition Width="0.7*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="0.5*"></RowDefinition>
+                            <RowDefinition Height="0.5*"></RowDefinition>
+                        </Grid.RowDefinitions>
+
+                        <Image Grid.RowSpan="2" 
+                               Source="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Check_green_icon.svg/1200px-Check_green_icon.svg.png"></Image>
+                        
+                        <Label Grid.Column="1" Text="{Binding Name}"
+                               FontAttributes="Bold"
+                               FontFamily="waltograph"
+                               FontSize="Large"
+                               VerticalOptions="Center"></Label>
+                        <Label Grid.Row="1" Grid.Column="1" Text="{Binding Price,StringFormat='{0:C}'}"
+                               FontAttributes="Italic"
+                               FontSize="Medium"
+                               VerticalOptions="Center"></Label>
+                    </Grid>
+
+                </Frame>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
+
+</ContentPage>
